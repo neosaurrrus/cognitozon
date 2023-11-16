@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { ProductType } from "@/types";
 
 export const useFetch = (url: string) => {
-    const [fetchedData, setFetchedData] = useState<string>('');
+    const [fetchedData, setFetchedData] = useState<ProductType[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState<unknown>(null)
 
