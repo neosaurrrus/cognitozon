@@ -1,5 +1,5 @@
 import { BasketType, ProductType } from 'src/types'
-import ButtonBasketAdd from 'src/components/ProductList/components/ButtonBasketAdd/ButtonBasketAdd'
+import ButtonBasketAdd from '../ButtonBasketAdd/ButtonBasketAdd'
 import { useContext } from 'react'
 import { BasketContext } from 'src/contexts/basket'
 
