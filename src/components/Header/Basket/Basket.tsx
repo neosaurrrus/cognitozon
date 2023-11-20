@@ -24,7 +24,7 @@ function Basket() {
             Basket ({basketCount})
             {isBasketOpen ? ' ▶' : ' ◀'}
         </button>
-        <div className={`absolute bg-gray-100/90 dark:bg-slate-800/75 text-gray-800 dark:text-gray-100 text-lg right-0 top-16 p-4 shadow-md duration-300 ${isBasketOpen ? 'opacity-100' : 'opacity-0 translate-x-96 '}`}>
+        <div className={`absolute bg-cognito-blue/90 dark:bg-slate-800/75 text-lg right-0 top-16 p-4 shadow-md rounded-b-md duration-300 ${isBasketOpen ? 'opacity-100' : 'opacity-0 translate-x-96 '}`}>
           <h1 className='text-2xl mb-4 text-center'>Your Basket</h1>
           <ul className="flex flex-col gap-4">
             {Object.keys(basket).map((item: string, index: number) => {
@@ -34,7 +34,7 @@ function Basket() {
           </ul>
           <button 
             onClick={handleEmptyBasketClick}
-            className='bg-cognito-gray text-gray-100 hover:scale-110 duration-300 rounded p-2 my-8 mx-36'>Empty Basket</button>
+            className='bg-cognito-gray text-gray-100 hover:scale-110 duration-300 shadow-md rounded p-2 my-8 mx-36'>Empty Basket</button>
         </div>
       </>
   )
