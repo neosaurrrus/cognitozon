@@ -1,5 +1,6 @@
 import { ProductType } from '@/types'
 import ButtonBasketAdd from '../ButtonBasketAdd/ButtonBasketAdd'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
 
 interface Props {
   product: ProductType
@@ -7,7 +8,7 @@ interface Props {
 }
 
 function ProductListItem({product, setSelectedProductFn}: Props) {
-  
+  const { isMobile } = useWindowDimensions()
   const {name, price} = product
   
   const handleDetailsClick = () => {
@@ -15,7 +16,7 @@ function ProductListItem({product, setSelectedProductFn}: Props) {
   }
 
   return (
-    <li className='flex gap-4 rounded bg-cognito-blue/20 dark:bg-slate-800 m-4 p-4 justify-between items-center duration-300'>
+    <li className={`flex ${isMobile && 'flex-col'} gap-4 rounded bg-cognito-blue/20 dark:bg-slate-800 m-4 p-4 justify-between items-center duration-300`}>
         <h2 className="text-lg">{name}</h2>
         <div>
           <span>£{price}</span> 
