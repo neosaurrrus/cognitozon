@@ -1,6 +1,6 @@
-import { ProductType } from '@/types'
+import { ProductType } from 'src/types'
 import ButtonBasketAdd from '../ButtonBasketAdd/ButtonBasketAdd'
-import useWindowDimensions from '@/hooks/useWindowDimensions'
+import useWindowDimensions from 'src/hooks/useWindowDimensions'
 
 interface Props {
   product: ProductType

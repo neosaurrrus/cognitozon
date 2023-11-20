@@ -1,4 +1,4 @@
-import useWindowDimensions from "@/hooks/useWindowDimensions"
+import useWindowDimensions from "src/hooks/useWindowDimensions"
 import Basket from "./Basket/Basket"
 
 

@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { BasketType } from "@/types"
-import { BasketContext } from "@/contexts/basket"
+import { BasketType } from "src/types"
+import { BasketContext } from "src/contexts/basket"
 
 interface Props {
     name: string

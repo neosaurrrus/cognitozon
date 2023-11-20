@@ -1,7 +1,7 @@
-import { BasketType, ProductType } from '@/types'
-import ButtonBasketAdd from '@/components/ProductList/components/ButtonBasketAdd/ButtonBasketAdd'
+import { BasketType, ProductType } from 'src/types'
+import ButtonBasketAdd from 'src/components/ProductList/components/ButtonBasketAdd/ButtonBasketAdd'
 import { useContext } from 'react'
-import { BasketContext } from '@/contexts/basket'
+import { BasketContext } from 'src/contexts/basket'
 
 interface Props {
   selectedProduct: ProductType

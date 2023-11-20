@@ -1,10 +1,10 @@
 
 import { useEffect, useState } from 'react'
-import { useFetch } from '@/hooks/useFetch'
-import useDialog from '@/hooks/useDialog'
+import { useFetch } from 'src/hooks/useFetch'
+import useDialog from 'src/hooks/useDialog'
 import ProductListItem from './components/ProductListItem/ProductListItem'
 import ProductDetail from './components/ProductDetail/ProductDetail'
-import { ProductType, ApiEndpoints } from '@/types'
+import { ProductType, ApiEndpoints } from 'src/types'
 
 
 function ProductList() {

@@ -1,5 +1,5 @@
-import { BasketContext } from "@/contexts/basket"
-import { BasketType } from "@/types"
+import { BasketContext } from "src/contexts/basket"
+import { BasketType } from "src/types"
 import { useContext, useState } from "react"
 
 function Basket() {
