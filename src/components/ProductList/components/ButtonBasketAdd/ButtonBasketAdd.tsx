@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { BasketType } from "@/types"
-import { BasketContext } from "@/App"
+import { BasketContext } from "@/contexts/basket"
 
 interface Props {
     name: string
@@ -28,4 +28,4 @@ const ButtonBasketAdd = ({name}: Props) => {
     );
 };
 
-export default ButtonBasketAdd;
+export default ButtonBasketAdd

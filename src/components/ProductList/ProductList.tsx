@@ -1,43 +1,56 @@
+
+import { useEffect, useState } from 'react'
 import { useFetch } from '@/hooks/useFetch'
+import useDialog from '@/hooks/useDialog'
 import ProductListItem from './components/ProductListItem/ProductListItem'
-import { ProductType } from '@/types'
+import ProductDetail from './components/ProductDetail/ProductDetail'
+import { ProductType, ApiEndpoints } from '@/types'
 
-
-// TODO: Find a better place for this:
-const getProductsUrl = 'https://s3.eu-west-2.amazonaws.com/techassessment.cognitoedu.org/products.json' 
 
 function ProductList() {
-  const { fetchedData: products, isLoading, error} = useFetch(getProductsUrl)
+  const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null)
+  const productDetailDialog = useDialog()
 
-  const renderProducts = () => (  // Was in two minds about a multiple column layout for the products, but I think it's better to keep it less cluttered.
-    products.map((product: ProductType, index: number) => {
+  useEffect(() => {
+    if (selectedProduct) {
+      productDetailDialog.show()
+    }
+  }, [productDetailDialog, selectedProduct])
+
+  const { fetchedData: products, isLoading, error} = useFetch(ApiEndpoints.GET_PRODUCTS)
+
+  // Was in two minds about a multiple column layout for the products, but I think it's better to keep it less cluttered.
+  // For a real app I'd consider performance more (reducing rerenders lazy loading/pagination techniques) but for this use case I think it's fine (hopefully)
+  const renderProducts = () => {
+    const sortedProducts = products.sort((a: ProductType, b: ProductType) => a.name.localeCompare(b.name))
+    return sortedProducts.map((product: ProductType, index: number) => {
       return (
-        <ul>
-          <ProductListItem key={index} product={product} />
-        </ul>
+          <ProductListItem key={index} product={product} setSelectedProductFn={setSelectedProduct} />
       )
     })
-  )
+  }
 
   return (
-    <div className='w-full min-h-screen text-center text-gray-800 dark:text-gray-300 bg-cognito-blue/25 dark:bg-slate-900 p-16'>
-      <h1 className='text-4xl m-16'>Our Products</h1>
+    <div className='w-full min-w-[450px] min-h-screen text-center text-gray-800 dark:text-gray-300 bg-cognito-blue/25 dark:bg-slate-900 p-16'>
+      <h1 className='text-4xl m-8'>Our Products</h1>
       {isLoading && <p className='text-2xl animate-pulse'>Loading...</p> } 
-      {error && <p className='text-2xl'>Sorry something went wrong, please try again.</p>}
-      {renderProducts()}
+      {Boolean(error) && <p className='text-2xl'>Sorry something went wrong: {error?.toString()}</p>}
+      <ul>
+        {renderProducts()}
+      </ul>
+      <dialog 
+        ref={productDetailDialog.dialogRef}
+        className="backdrop:bg-cognito-blue/50 open:animate-fade-in p-8 rounded shadow-lg" 
+      >
+        {selectedProduct && <ProductDetail closeDialogFn={productDetailDialog.close} selectedProduct={selectedProduct} setSelectedProductFn={setSelectedProduct} />}
+      </dialog>
     </div>
   )
 }
 
 export default ProductList
 
-// 1. stop multiple requests
-// 4. flow the products across the page, let it breathe. Lazy load? Order list? Mention pagnitation at least
-// 5. show the desc? (check brief)
-// 8.  mobile menu?
-// 9. Fix TS errors.
 // 10. tests
-// 11. responsive - 800px breakpoint
 // 12. readme and comment
 // 13. readability check
 // 14. Check TODOs

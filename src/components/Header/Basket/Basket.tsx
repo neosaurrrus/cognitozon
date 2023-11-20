@@ -1,4 +1,4 @@
-import { BasketContext } from "@/App"
+import { BasketContext } from "@/contexts/basket"
 import { BasketType } from "@/types"
 import { useContext, useState } from "react"
 
@@ -30,7 +30,7 @@ function Basket() {
             {Object.keys(basket).map((item: string, index: number) => {
               return <li key={index}>{basket[item]} x {item} </li>
             })}
-            {basketCount === 0 && <p>Your basket is empty.</p>}
+            {basketCount === 0 && <li>Your basket is empty.</li>}
           </ul>
           <button 
             onClick={handleEmptyBasketClick}
