@@ -7,4 +7,8 @@ export interface ProductType {
 
 export interface BasketType {
     [key: string]: number
-} 
+}
+
+export enum ApiEndpoints {
+    GET_PRODUCTS = 'https://s3.eu-west-2.amazonaws.com/techassessment.cognitoedu.org/products.json',
+}
