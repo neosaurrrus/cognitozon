@@ -1,7 +1,6 @@
 import useWindowDimensions from "src/hooks/useWindowDimensions"
 import Basket from "./Basket/Basket"
 
-
 // I have not added real routing to this app its mostly for show, I would use react-router in a real app
 function Header() {
   const navItemClasses = 'hover:scale-110 hover:font-semibold duration-300'
@@ -16,7 +15,7 @@ function Header() {
   )
 
   const renderMobileMenu = () => (
-    <select className='border bg-cognito-blue dark:bg-slate-800/75 text-lg text-gray-100 p-2 rounded shadow-md'>
+    <select className='border bg-cognito-blue dark:bg-slate-800/25 text-lg text-gray-100 p-2 rounded shadow-md'>
       <option value="/products">Our Products</option>
       <option value="/about">About Us</option>
       <option value="/help">Help & Support</option>
