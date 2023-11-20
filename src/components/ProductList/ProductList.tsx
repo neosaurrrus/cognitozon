@@ -38,9 +38,10 @@ function ProductList() {
       <ul>
         {renderProducts()}
       </ul>
+      {/* Dialog probably should be its own component if it were used more than here */}
       <dialog 
         ref={productDetailDialog.dialogRef}
-        className="backdrop:bg-cognito-blue/50 open:animate-fade-in p-8 rounded shadow-lg" 
+        className="backdrop:bg-cognito-blue/50 open:animate-fade-in bg-grey-200/90 dark:bg-slate-900 text-gray-800 dark:text-white-100 p-8 rounded shadow-lg" 
       >
         {selectedProduct && <ProductDetail closeDialogFn={productDetailDialog.close} selectedProduct={selectedProduct} setSelectedProductFn={setSelectedProduct} />}
       </dialog>
