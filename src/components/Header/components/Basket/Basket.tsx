@@ -22,7 +22,7 @@ function Basket() {
             <img src="src/assets/basket.svg" className="w-6 h-6 mr-2" alt=""/>
             Basket ({basketCount})
         </button>
-        <div className={`absolute bg-cognito-blue/90 dark:bg-slate-800/75 text-lg right-0 top-16 p-4 shadow-md rounded-b-md duration-300 ${isBasketOpen ? "opacity-100" : "opacity-0 translate-x-96"}`}>
+        <div className={`absolute bg-cognito-blue/80 text-lg right-0 top-16 p-4 shadow-md rounded-b-md duration-300 ${isBasketOpen ? "opacity-100" : "opacity-0 translate-x-96"}`}>
           <h1 className="text-2xl mb-4 text-center">Your Basket</h1>
           <ul className="flex flex-col gap-4">
             {Object.keys(basket).map((item: string, index: number) => {

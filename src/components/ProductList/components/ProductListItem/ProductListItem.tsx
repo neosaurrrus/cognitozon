@@ -8,7 +8,7 @@ interface Props {
 }
 
 const ProductListItem = ({product, setSelectedProductFn}: Props) => {
-  const { isMobile } = useWindowDimensions()
+  const { isNarrowViewport } = useWindowDimensions()
   const { name, price } = product
   
   const handleDetailsClick = () => {
@@ -16,10 +16,11 @@ const ProductListItem = ({product, setSelectedProductFn}: Props) => {
   }
 
   return (
-    <li className={`flex ${isMobile && "flex-col"} max-w-[700px] gap-4 rounded bg-cognito-blue/20 dark:bg-slate-800 m-4 p-4 justify-between items-center duration-300`}>
+    <li className={`flex ${isNarrowViewport && "flex-col"} max-w-[700px] gap-4 rounded bg-cognito-blue/20 dark:bg-slate-800 m-4 p-4 justify-between items-center duration-300`}>
       <h2 className="text-lg">{name}</h2>
+      {isNarrowViewport && <span>£{price}</span>} 
       <div>
-        <span>£{price}</span> 
+        {!isNarrowViewport && <span>£{price}</span>} 
         <button
           onClick={handleDetailsClick}
           className="bg-cognito-gray hover:scale-110 font-bold text-gray-100 py-2 px-4 mx-4 rounded duration-300"

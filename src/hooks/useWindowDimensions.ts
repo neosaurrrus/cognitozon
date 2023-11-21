@@ -6,9 +6,9 @@ const useWindowDimensions = () => {
 
   const getWindowDimensions = useCallback(() => {
     const width = hasWindow ? window.innerWidth : 0
-    const isMobile = width < 800;
+    const isNarrowViewport = width < 800;
     return {
-      isMobile,
+      isNarrowViewport,
     };
   }, [hasWindow])
 
