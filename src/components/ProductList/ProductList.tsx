@@ -38,7 +38,7 @@ const ProductList = () => {
   
       <dialog 
         ref={productDetailDialog.dialogRef}
-        className="backdrop:bg-cognito-blue/50 open:animate-fade-in bg-grey-200/90 dark:bg-slate-800 dark:text-gray-300 p-8 rounded shadow-lg" 
+        className="backdrop:bg-cognito-blue/50 backdrop:open:animate-fade-in open:animate-fade-in bg-grey-200/90 dark:bg-slate-800 dark:text-gray-300 p-8 rounded shadow-lg" 
       >
         {selectedProduct && <ProductDetail closeDialogFn={productDetailDialog.close} selectedProduct={selectedProduct} setSelectedProductFn={setSelectedProduct} />}
       </dialog>
