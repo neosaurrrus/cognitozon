@@ -22,7 +22,7 @@ const ProductList = () => {
     }
   }, [productDetailDialog, selectedProduct])
 
-  const renderProducts = () => {
+  const renderProducts = () => { // This is a good candidate for pagination/lazy loading in a real app if there is normally lots of products.
     return sortedProducts.map((product: ProductType, index: number) => (
       <ProductListItem key={index} product={product} setSelectedProductFn={setSelectedProduct} />
     ))
