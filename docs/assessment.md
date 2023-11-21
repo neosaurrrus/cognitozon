@@ -14,7 +14,7 @@ I stuck to a basic fetch implementation for the API call with simple loading and
 
 ## Task 2: Component Architecture
 
-I have the components mentioned but also broke it down into smaller components sometimes as I am a tiny component fan for readability, performance and testing. I have sprinkled comments all over the place just to explain why I did what I did. 
+I have the components mentioned but also broke it down into smaller components sometimes as I am a tiny component fan for readability, performance and testing. I have sprinkled comments all over the place just to explain why I did what I did. In RL I normally use comments less randomly, normally where there is an interesting 'why' something is the way it is done.
 
 ## Task 3: State Management
 
