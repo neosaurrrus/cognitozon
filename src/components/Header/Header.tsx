@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <nav className="w-full min-w-[450px] h-16 sticky top-0 flex justify-between items-center px-8 shadow-md text-xl bg-cognito-blue text-gray-100">
       <a href="/" className="text-white hover:scale-110 duration-300">
-        <img src="src/assets/store-logo.svg" className="h-8 w-8 inline-block mr-2 fill white hover:animate-spin" alt="badge with a star emblem" />
+        <img src="store-logo.svg" className="h-8 w-8 inline-block mr-2 fill white hover:animate-spin" alt="badge with a star emblem" />
         {!isNarrowViewport && <span>Cognitozon</span>}
       </a>
       {isNarrowViewport ? <CompactMenu /> : <FullMenu />}

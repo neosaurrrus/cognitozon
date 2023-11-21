@@ -28,11 +28,11 @@ function Basket() {
         <button 
           onClick={() => setIsBasketOpen(prev => !prev)} 
           className="hover:scale-110 duration-300 flex">
-            <img src="src/assets/basket.svg" className="w-6 h-6 mr-2" alt=""/>
+            <img src="basket.svg" className="w-6 h-6 mr-2" alt=""/>
             Basket ({basketCount})
         </button>
         <div 
-          className={`absolute max-h-[90vh] overflow-scroll bg-cognito-blue/80 text-lg right-0 top-16 p-2 mb-16 shadow-md rounded-b-md duration-500 ${isBasketOpen ? "opacity-100" : "opacity-0 hidden"}`}
+          className={`absolute max-h-[90vh] overflow-scroll bg-cognito-blue/80 text-lg right-0 top-16 p-4 mb-16 shadow-md rounded-b-md duration-500 ${isBasketOpen ? "opacity-100" : "opacity-0 hidden"}`}
           aria-hidden={!isBasketOpen}
         >
           <h1 className="text-2xl mb-4 text-center">Your Basket</h1>

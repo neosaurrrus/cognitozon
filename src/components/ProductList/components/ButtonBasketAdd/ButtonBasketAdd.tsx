@@ -25,7 +25,7 @@ const ButtonBasketAdd = ({name, price}: Props) => {
       onClick={handleAddToBasketClick}
       className="bg-cognito-blue hover:scale-110 font-bold text-gray-100 py-2 px-4 rounded duration-300"
     >
-      <img src="src/assets/basket-add.svg" className="h-4 w-4 inline-block mr-2" alt="basket" /> 
+      <img src="basket-add.svg" className="h-4 w-4 inline-block mr-2" alt="basket" /> 
       <span>Add</span>
     </button>
   )
