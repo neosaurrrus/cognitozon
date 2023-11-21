@@ -17,6 +17,15 @@ jest.mock("../ButtonBasketAdd/ButtonBasketAdd", () => () => <div data-testid="mo
 const setSelectedProductFn = jest.fn()
 const closeDialogFn = jest.fn()
 
+// Mock Basket context
+jest.mock("react", () => ({
+    ...jest.requireActual("react"),
+    useContext: () => ({
+        basket: {'Test Product' : {count: 2, price: 9.99}},
+        setBasket: () => {},
+    }),
+}))
+
 const renderProductDetailComponent = () => {
     render(
         <ProductDetail
@@ -34,6 +43,7 @@ describe("Test ProductDetail", () => {
             expect(screen.getByText("Test Product")).toBeInTheDocument()
             expect(screen.getByText("£9.99")).toBeInTheDocument()
             expect(screen.getByText("This is a test product")).toBeInTheDocument()
+            expect(screen.getByText(/2 in basket/)).toBeInTheDocument()
         })
         it("renders ButtonBasketAdd component", () => {
             renderProductDetailComponent()
