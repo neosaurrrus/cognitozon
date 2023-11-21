@@ -1,8 +1,7 @@
-import '@testing-library/jest-dom'
+import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import ButtonBasketAdd from "./ButtonBasketAdd"
 import { BasketContext } from "src/contexts/basket"
-
 
 // mock Context
 const mockContextValue = {
@@ -15,12 +14,13 @@ const mockContextValue = {
 const renderButtonBasketAddComponent = () => {
     render(
         <BasketContext.Provider value={mockContextValue}>
-            <ButtonBasketAdd name={'Test Name'} />
+            <ButtonBasketAdd name={"Test Name"} />
         </BasketContext.Provider>
     )
 }
+
 describe("ButtonBasketAdd", () => {
-    test("renders button with correct name", () => {
+    it("renders button with correct name", () => {
         renderButtonBasketAddComponent()
         const buttonElement = screen.getByRole("button", { name: /add/i });
         expect(buttonElement).toBeInTheDocument();

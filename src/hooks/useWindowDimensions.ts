@@ -1,9 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react"
 
-// I don't like how many times we have to check if window exists, could use a debouncer here
-export default function useWindowDimensions() {
-
-  const hasWindow = typeof window !== 'undefined';
+// Could use a debouncer here to reduce the number of times the window dimensions are calculated
+const useWindowDimensions = () => {
+  const hasWindow = typeof window !== "undefined"
 
   const getWindowDimensions = useCallback(() => {
     const width = hasWindow ? window.innerWidth : 0
@@ -21,10 +20,12 @@ export default function useWindowDimensions() {
 
   useEffect(() => {
     if (hasWindow) {
-      window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
+      window.addEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize)
     }
   }, [handleResize, hasWindow])
 
   return windowDimensions
 }
+
+export default useWindowDimensions

@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import {useRef} from "react"
 
 const useDialog = () => {
     const dialogRef = useRef(null)

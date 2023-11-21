@@ -10,5 +10,5 @@ export interface BasketType {
 }
 
 export enum ApiEndpoints {
-    GET_PRODUCTS = 'https://s3.eu-west-2.amazonaws.com/techassessment.cognitoedu.org/products.json',
+    GET_PRODUCTS = "https://s3.eu-west-2.amazonaws.com/techassessment.cognitoedu.org/products.json",
 }

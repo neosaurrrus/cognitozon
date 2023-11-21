@@ -5,10 +5,10 @@ import ProductList from "./components/ProductList/ProductList"
 import { BasketContext } from "./contexts/basket"
 import { BasketType } from "./types"
 
-const localBasket = JSON.parse(localStorage.getItem("basket") || "{}")
+const localBasket = JSON.parse(localStorage.getItem("basket") || "{}") // This really should be in a hook
 
-function App() {
-  const [basket, setBasket] = useState<BasketType>({...localBasket} || null);
+const App = () => {
+  const [basket, setBasket] = useState<BasketType>({...localBasket} || null)
   const basketContextValue = useMemo(() => ({ basket, setBasket }), [basket, setBasket])
 
   return (

@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { ProductType } from "@/types";
+import { useState, useEffect } from "react"
+import { ProductType } from "src/types"
 
 export const useFetch = (url: string) => {
-    const [fetchedData, setFetchedData] = useState<ProductType[]>([]);
+    const [fetchedData, setFetchedData] = useState<ProductType[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState<unknown>(null)
 
@@ -12,15 +12,15 @@ export const useFetch = (url: string) => {
             try {
                 const response = await fetch(url)
                 if(!response.ok) throw new Error(response.statusText)
-                const json = await response.json();
+                const json = await response.json()
                 setIsLoading(false)
                 setFetchedData(json)
-                setError('')
+                setError("")
             } catch (error) {
                 setError(error)
                 setIsLoading(false)
             }
-        };
+        }
         fetchData()
     }, [url])
 
