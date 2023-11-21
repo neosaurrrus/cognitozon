@@ -16,7 +16,7 @@ const ProductListItem = ({product, setSelectedProductFn}: Props) => {
   }
 
   return (
-    <li className={`flex ${isMobile && "flex-col"} gap-4 rounded bg-cognito-blue/20 dark:bg-slate-800 m-4 p-4 justify-between items-center duration-300`}>
+    <li className={`flex ${isMobile && "flex-col"} max-w-[700px] gap-4 rounded bg-cognito-blue/20 dark:bg-slate-800 m-4 p-4 justify-between items-center duration-300`}>
       <h2 className="text-lg">{name}</h2>
       <div>
         <span>£{price}</span> 

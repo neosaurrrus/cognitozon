@@ -26,7 +26,7 @@ const ProductList = () => {
   }
 
   return (
-    <div className="w-full min-w-[450px] min-h-screen text-center text-gray-800 dark:text-gray-300 bg-cognito-blue/25 dark:bg-slate-900 p-16">
+    <div className="flex flex-col items-center w-full min-w-[450px] min-h-screen text-gray-800 dark:text-gray-300 bg-cognito-blue/25 dark:bg-slate-900 p-16">
       <h1 className="text-4xl mb-16">Cognitozon Products</h1>
       {isLoading && <p className="text-2xl animate-pulse">Loading...</p> } 
       {Boolean(error) && <p className="text-2xl">Sorry something went wrong: {error?.toString()}</p>}
