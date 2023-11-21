@@ -11,7 +11,8 @@ const ProductList = () => {
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null)
   const productDetailDialog = useDialog()
   const { fetchedData: products, isLoading, error} = useFetch(ApiEndpoints.GET_PRODUCTS)
-  const sortedProducts = useMemo(() =>products.sort((a: ProductType, b: ProductType) => a.name.localeCompare(b.name)), [products])
+
+  const sortedProducts = useMemo(() => products.sort((a: ProductType, b: ProductType) => a.name.localeCompare(b.name)), [products])
 
   useEffect(() => { // show the ProductDetail dialog when a product is selected
     if (selectedProduct) {
@@ -28,7 +29,7 @@ const ProductList = () => {
     ))
   }
 
-  // I generally try to keep complex logic out of the return statement, using 'renderXXX' functions instead. I find it makes the code more readable and easier to debug.
+  // I generally try to keep complex logic out of the return statement, using 'renderXXX' functions instead. I find it makes the code more readable and easier to debug. 
   return (
     <div className="flex flex-col items-center w-full min-w-[450px] min-h-screen p-16 text-gray-800 dark:text-gray-300 bg-cognito-blue/25 dark:bg-slate-900 ">
       <h1 className="text-4xl mb-16">Cognitozon Products</h1>
@@ -38,7 +39,7 @@ const ProductList = () => {
         {renderProducts()}
       </ul>
 
-      <dialog 
+      <dialog  // Could be a higher order component, but I think it's fine as its only used here.
         ref={productDetailDialog.dialogRef}
         className="backdrop:bg-cognito-blue/50 bg-grey-200/90 dark:bg-slate-800 p-8 rounded shadow-lg" 
       >
