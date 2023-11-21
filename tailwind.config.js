@@ -11,7 +11,7 @@ export default {
     extend: {
       colors: {
         'cognito-blue': '#1A96F3',
-        'cognito-gray': '#A1A1A1',
+        'cognito-gray': '#898989',
       },
     },
   },
