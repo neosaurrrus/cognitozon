@@ -6,7 +6,7 @@ import { BasketContext } from "src/contexts/basket"
 // mock Context
 const mockContextValue = {
     basket: {
-        "Test Product": 1,
+        "Test Product": {count: 1, price: 9.99},
     },
     setBasket: jest.fn(),
 };
@@ -14,7 +14,7 @@ const mockContextValue = {
 const renderButtonBasketAddComponent = () => {
     render(
         <BasketContext.Provider value={mockContextValue}>
-            <ButtonBasketAdd name={"Test Name"} />
+            <ButtonBasketAdd name={"Test Name"} price={1}/>
         </BasketContext.Provider>
     )
 }
@@ -30,6 +30,6 @@ describe("ButtonBasketAdd", () => {
         renderButtonBasketAddComponent()
         const buttonElement = screen.getByRole("button", { name: /add/i });
         buttonElement.click()
-        expect(mockContextValue.setBasket).toHaveBeenCalledWith({ "Test Product": 1, "Test Name": 1 });
+        expect(mockContextValue.setBasket).toHaveBeenCalledWith({ "Test Product": {count:1, price: 9.99}, "Test Name": {count: 1, price: 1} });
     });
 });

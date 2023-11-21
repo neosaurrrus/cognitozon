@@ -7,6 +7,8 @@ interface Props {
   setSelectedProductFn: (product: ProductType) => void
 }
 
+// Depending on the viewport width, the product list item elements will either be a row or a column to make the best use of space, the price position changes to keep it easily visible for a user.
+// I figure a user should be able to add a product here as well as in the details, so the button is in both places.
 const ProductListItem = ({product, setSelectedProductFn}: Props) => {
   const { isNarrowViewport } = useWindowDimensions()
   const { name, price } = product
@@ -18,7 +20,7 @@ const ProductListItem = ({product, setSelectedProductFn}: Props) => {
   return (
     <li className={`flex ${isNarrowViewport && "flex-col"} max-w-[700px] gap-4 rounded bg-cognito-blue/20 dark:bg-slate-800 m-4 p-4 justify-between items-center duration-300`}>
       <h2 className="text-lg">{name}</h2>
-      {isNarrowViewport && <span>£{price}</span>} 
+      {isNarrowViewport && <span>£{price}</span>}
       <div>
         {!isNarrowViewport && <span>£{price}</span>} 
         <button
@@ -27,7 +29,7 @@ const ProductListItem = ({product, setSelectedProductFn}: Props) => {
         >
           Details
         </button>
-        <ButtonBasketAdd name={name} />
+        <ButtonBasketAdd name={name} price={price} />
       </div>
     </li>
   )

@@ -4,18 +4,20 @@ import { BasketContext } from "src/contexts/basket"
 
 interface Props {
   name: string
+  price: number
 }
 
-const ButtonBasketAdd = ({name}: Props) => {
+// This button is used in both the ProductList and ProductDetail components
+const ButtonBasketAdd = ({name, price}: Props) => {
   const basket: BasketType = useContext(BasketContext).basket
   const setBasketFn: (basket: BasketType) => void = useContext(BasketContext).setBasket
   const handleAddToBasketClick = () => {
     if (basket[name]) {
-      setBasketFn({...basket, [name]: basket[name] + 1})
+      setBasketFn({...basket, [name]: { count: basket[name].count + 1, price: basket[name].price }})
     } else {
-      setBasketFn({...basket, [name]: 1})
+      setBasketFn({...basket, [name]: { count: 1, price }})
     }
-    localStorage.setItem("basket", JSON.stringify(basket)); // Would have this logic in its own hook in a real app. (Though I"d probably use a DB instead of local storage in that case)
+    localStorage.setItem("basket", JSON.stringify(basket))
   }
 
   return (

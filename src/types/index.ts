@@ -6,7 +6,7 @@ export interface ProductType {
 }
 
 export interface BasketType {
-    [key: string]: number
+    [key: string]: {count: number, price: number}
 }
 
 export enum ApiEndpoints {
