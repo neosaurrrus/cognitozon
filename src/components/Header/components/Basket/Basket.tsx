@@ -3,6 +3,7 @@ import { BasketType } from "src/types"
 import { useContext, useState } from "react"
 import BasketListItem from "./components/BasketListItem/BasketListItem"
 
+// This component comprises both a button and the actual basket. I think having the basket as a popover on the side is helpful for a user trying to shop and see their basket at the same time.
 function Basket() {
   const [isBasketOpen, setIsBasketOpen] = useState<boolean>(false)
   const basket: BasketType = useContext(BasketContext).basket
@@ -31,7 +32,7 @@ function Basket() {
             Basket ({basketCount})
         </button>
         <div 
-          className={`absolute bg-cognito-blue/80 text-lg right-0 top-16 p-4 shadow-md rounded-b-md duration-300 ${isBasketOpen ? "opacity-100" : "opacity-0 translate-x-96"}`}
+          className={`absolute max-h-[90vh] overflow-scroll bg-cognito-blue/80 text-lg right-0 top-16 p-2 mb-16 shadow-md rounded-b-md duration-500 ${isBasketOpen ? "opacity-100" : "opacity-0 hidden"}`}
           aria-hidden={!isBasketOpen}
         >
           <h1 className="text-2xl mb-4 text-center">Your Basket</h1>
