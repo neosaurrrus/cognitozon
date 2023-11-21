@@ -1,6 +1,7 @@
 import { BasketContext } from "src/contexts/basket"
 import { BasketType } from "src/types"
 import { useContext, useState } from "react"
+import BasketListItem from "./components/BasketListItem/BasketListItem"
 
 function Basket() {
   const [isBasketOpen, setIsBasketOpen] = useState<boolean>(false)
@@ -10,20 +11,15 @@ function Basket() {
   const basketTotal = Object.values(basket).reduce((acc, curr) => acc + (curr.count * curr.price), 0).toFixed(2) // To fixed is used here to avoid classic JS weird floating point errors
 
   const handleEmptyBasketClick = () => {
-    localStorage.removeItem("basket")
+    localStorage.removeItem("basket") // Again, probably should be a hook or DB in a real app.
     setBasketFn({})
     setIsBasketOpen(false)
   }
 
   const renderBasketItems = () => {
-    return Object.keys(basket).map((item: string, index: number) => { 
-      return (
-        <li className='flex justify-between px-4' key={index}>
-          <span>{basket[item].count} x {item}</span>
-          <span> £{(basket[item].price * basket[item].count).toFixed(2)}</span> 
-        </li>
-      )
-    })
+    return Object.keys(basket).map((item: string, index: number) => (
+      <BasketListItem key={index} basket={basket} item={item}/>
+    ))
   }
 
   return (
