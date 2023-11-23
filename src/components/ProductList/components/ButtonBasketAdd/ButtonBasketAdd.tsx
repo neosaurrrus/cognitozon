@@ -7,10 +7,11 @@ interface Props {
   price: number
 }
 
-// This button is used in both the ProductList and ProductDetail components
+// This button is used in both the ProductList and ProductDetail components. 
 const ButtonBasketAdd = ({name, price}: Props) => {
   const basket: BasketType = useContext(BasketContext).basket
   const setBasketFn: (basket: BasketType) => void = useContext(BasketContext).setBasket
+
   const handleAddToBasketClick = () => {
     if (basket[name]) {
       setBasketFn({...basket, [name]: { count: basket[name].count + 1, price: basket[name].price }})
